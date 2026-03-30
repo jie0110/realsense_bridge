@@ -1,0 +1,11 @@
+[project]
+name = "realsense-bridge"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.8.10"
+dependencies = [
+    "opencv-python>=4.13.0.92",
+    "pyrealsense2>=2.55.1.6486",
+    "pyyaml>=6.0.3",
+]

@@ -1,0 +1,67 @@
+# depth_processor: 可选覆盖字段
+# 所有字段均为默认值，可按需修改
+depth_processor:
+  sim_width: 64
+  sim_height: 36
+  crop_up: 18
+  crop_down: 0
+  crop_left: 16
+  crop_right: 16
+  gaussian_kernel: [3, 3]
+  gaussian_sigma: 1.0
+  depth_min: 0.0
+  depth_max: 2.5
+  normalize: true
+  out_min: 0.0
+  out_max: 1.0
+  blind_up: 0
+  blind_down: 0
+  blind_left: 0
+  blind_right: 0
+  rs_width: 480
+  rs_height: 270
+  rs_fps: 60
+
+  noise:
+    enabled: false
+    order:
+      - random_gaussian_noise
+      - depth_artifact_noise
+      - range_based_gaussian_noise
+      - depth_stereo_noise
+
+    random_gaussian_noise:
+      enabled: true
+      mean: 0.0
+      std: 1.0
+      probability: 0.5
+
+    depth_artifact_noise:
+      enabled: true
+      artifacts_prob: 0.0001
+      artifact_height_mean: 2.0
+      artifact_height_std: 0.5
+      artifact_width_mean: 2.0
+      artifact_width_std: 0.5
+      artifact_noise_value: 0.0
+
+    range_based_gaussian_noise:
+      enabled: true
+      min_value: 0.2
+      max_value: 1.5
+      noise_std: 0.02
+
+    depth_stereo_noise:
+      enabled: true
+      stereo_far_distance: 2.0
+      stereo_min_distance: 0.12
+      stereo_far_noise_std: 0.08
+      stereo_near_noise_std: 0.02
+      stereo_full_block_artifacts_prob: 0.001
+      stereo_full_block_values: [0.0, 0.25, 0.5, 1.0, 3.0]
+      stereo_full_block_height_mean: 62.0
+      stereo_full_block_height_std: 1.5
+      stereo_full_block_width_mean: 3.0
+      stereo_full_block_width_std: 0.01
+      stereo_half_block_spark_prob: 0.02
+      stereo_half_block_value: 3.0
