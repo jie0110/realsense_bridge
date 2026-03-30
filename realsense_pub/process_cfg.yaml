@@ -1,5 +1,3 @@
-# depth_processor: 可选覆盖字段
-# 所有字段均为默认值，可按需修改
 depth_processor:
   sim_width: 64
   sim_height: 36
@@ -21,7 +19,6 @@ depth_processor:
   rs_width: 480
   rs_height: 270
   rs_fps: 60
-
   noise:
     enabled: false
     order:
@@ -29,13 +26,11 @@ depth_processor:
       - depth_artifact_noise
       - range_based_gaussian_noise
       - depth_stereo_noise
-
     random_gaussian_noise:
       enabled: true
       mean: 0.0
       std: 1.0
       probability: 0.5
-
     depth_artifact_noise:
       enabled: true
       artifacts_prob: 0.0001
@@ -44,13 +39,11 @@ depth_processor:
       artifact_width_mean: 2.0
       artifact_width_std: 0.5
       artifact_noise_value: 0.0
-
     range_based_gaussian_noise:
       enabled: true
       min_value: 0.2
       max_value: 1.5
       noise_std: 0.02
-
     depth_stereo_noise:
       enabled: true
       stereo_far_distance: 2.0
